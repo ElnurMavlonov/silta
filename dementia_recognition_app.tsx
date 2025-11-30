@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Brain, Users, Smartphone, Database, Zap, Heart, ChevronRight, Camera, Shield, Linkedin, Activity, Lock, Globe, Rocket, Flag, Lightbulb, Award, Trophy } from 'lucide-react';
 
 const App = () => {

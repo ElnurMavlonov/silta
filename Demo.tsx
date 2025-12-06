@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Brain, ArrowLeft } from 'lucide-react';
+import { Brain, ArrowLeft, ExternalLink, Zap } from 'lucide-react';
 
 const Demo = () => {
   return (
@@ -41,15 +41,25 @@ const Demo = () => {
           <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white border-opacity-20 mb-8">
             <h2 className="text-3xl font-bold mb-6">Interactive Demo</h2>
             <p className="text-lg text-gray-200 mb-8">
-              This is a demo page for the Silta application. You can add interactive features, 
-              video demonstrations, or any other content you'd like to showcase here.
+              Experience the full Silta MVP prototype with live face recognition capabilities.
             </p>
             
-            {/* Placeholder for demo content */}
-            <div className="bg-black bg-opacity-30 rounded-2xl p-12 text-center border border-white border-opacity-10">
-              <div className="text-6xl mb-4">📱</div>
-              <p className="text-xl text-gray-300">Demo content goes here</p>
-              <p className="text-sm text-gray-400 mt-2">Add your interactive demo, video, or features</p>
+            {/* MVP Link */}
+            <div className="bg-gradient-to-r from-purple-900 to-indigo-900 rounded-2xl p-12 text-center border border-white border-opacity-20 mb-8">
+              <Zap className="w-16 h-16 mx-auto mb-6 text-yellow-300" />
+              <h3 className="text-2xl font-bold mb-4">Try the Live MVP</h3>
+              <p className="text-lg text-gray-200 mb-6">
+                Test Silta's face recognition technology in our working prototype
+              </p>
+              <a
+                href="https://silta-prototype.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-white text-purple-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all shadow-lg hover:scale-105"
+              >
+                Open MVP Prototype
+                <ExternalLink className="w-5 h-5" />
+              </a>
             </div>
           </div>
 

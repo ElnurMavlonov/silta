@@ -1,12 +1,18 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Brain, Users, Smartphone, Database, Zap, Heart, ChevronRight, Camera, Shield, Linkedin, Activity, Lock, Globe, Rocket, Flag, Lightbulb, Award, Trophy } from 'lucide-react';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('problem');
+  const navigate = useNavigate();
 
-  const sections = ['problem', 'solution-&-impact', 'team', 'roadmap', 'why-us', 'how-it-works'];
+  const sections = ['problem', 'solution-&-impact', 'team', 'roadmap', 'why-us', 'how-it-works', 'demo'];
 
   const scrollToSection = (sectionId: string) => {
+    if (sectionId === 'demo') {
+      navigate('/demo');
+      return;
+    }
     setActiveSection(sectionId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -200,7 +206,7 @@ const App = () => {
               <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200 drop-shadow-sm">
                 Expected Outcomes
               </h2>
-              
+            
               <div className="grid md:grid-cols-3 gap-8 mb-12">
                 {[
                   { label: "Reduction in Patient Anxiety", icon: Activity, color: "text-green-300" },
@@ -216,7 +222,7 @@ const App = () => {
                   </div>
                 ))}
               </div>
-              
+
               <div className="bg-black bg-opacity-20 rounded-3xl p-8 border border-white border-opacity-10">
                 <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                   <Globe className="w-6 h-6 text-purple-300" />
@@ -292,7 +298,7 @@ const App = () => {
             {/* Technology Section Content */}
             <div className="mt-20">
               <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Tech Stack</h2>
-              
+            
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-gradient-to-br from-purple-900 to-indigo-900 rounded-3xl p-10 border border-white border-opacity-20 shadow-xl">
                   <Brain className="w-16 h-16 text-purple-300 mb-6" />
@@ -333,7 +339,7 @@ const App = () => {
                 <div className="inline-block bg-black bg-opacity-30 rounded-full px-8 py-3 border border-white border-opacity-20">
                   <span className="text-gray-400">Powered by</span>
                   <span className="ml-3 font-bold text-white text-lg">Python • TensorFlow • React Native • SQLite</span>
-                </div>
+                 </div>
               </div>
             </div>
           </div>
@@ -371,7 +377,7 @@ const App = () => {
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-tr from-gray-700 to-gray-600 flex items-center justify-center text-3xl font-bold text-white">
-                        {member.name.charAt(0)}
+                    {member.name.charAt(0)}
                       </div>
                     )}
                   </div>
@@ -523,7 +529,7 @@ const App = () => {
               <h3 className="text-3xl font-bold mb-4">Our Motivation</h3>
               <p className="text-xl text-gray-200 max-w-4xl mx-auto">
                 "Our philosophy is that technology's greatest purpose is to help the most vulnerable. Witnessing the struggle of dementia drove us to build a bridge to bring clarity back to those who need it most."
-              </p>
+               </p>
             </div>
           </div>
         )}

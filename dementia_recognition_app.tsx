@@ -28,7 +28,7 @@ const App = () => {
               <div className="bg-white bg-opacity-10 p-2 rounded-xl border border-white border-opacity-20">
                 <img src="/logo.png" alt="Silta Logo" className="w-10 h-10 object-contain" />
               </div>
-              <span className="text-2xl font-bold tracking-tight">Silta</span>
+              <span className="text-2xl font-bold tracking-tight">Silta - the Bridge</span>
             </div>
             
             {/* Desktop Navigation */}
@@ -86,8 +86,7 @@ const App = () => {
                 Global Health Crisis
               </div>
               <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight drop-shadow-lg">
-                the 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-pink-200"><i> Silta </i></span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-pink-200"><i> Silta - the Bridge </i></span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto leading-relaxed font-light">
                 For millions with dementia, a familiar face becomes a stranger. The resulting isolation devastates families.
@@ -138,7 +137,7 @@ const App = () => {
         {activeSection === 'solution-&-impact' && (
           <div className="max-w-6xl mx-auto animate-fadeIn">
             <div className="text-center mb-16">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">Meet <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 to-purple-200">Silta</span></h1>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6">Meet <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 to-purple-200">Silta - the Bridge</span></h1>
               <p className="text-2xl text-gray-200">The memory assistant that bridges the gap.</p>
             </div>
 
@@ -539,7 +538,7 @@ const App = () => {
       <footer className="bg-black bg-opacity-40 backdrop-blur-lg py-12 border-t border-white border-opacity-10 text-center">
         <div className="max-w-6xl mx-auto px-6">
           <img src="/logo.png" alt="Silta Logo" className="w-24 h-24 mx-auto mb-4 object-contain" />
-          <p className="text-3xl font-bold mb-2 text-purple-300">Silta</p>
+          <p className="text-3xl font-bold mb-2 text-purple-300">Silta - the Bridge</p>
           <p className="text-gray-400 mb-2">AI Hackathon 2025 • Tashkent, Uzbekistan</p>
           <div className="text-sm text-gray-400">
             © 2025 Team ~105. All rights reserved.

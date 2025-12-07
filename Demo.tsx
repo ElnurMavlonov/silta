@@ -76,7 +76,7 @@ const Demo = () => {
               <div className="bg-white bg-opacity-10 p-2 rounded-xl border border-white border-opacity-20">
                 <img src="/logo.png" alt="Silta Logo" className="w-10 h-10 object-contain" />
               </div>
-              <span className="text-2xl font-bold tracking-tight">Silta</span>
+              <span className="text-2xl font-bold tracking-tight">Silta - the Bridge</span>
             </Link>
             <Link 
               to="/" 
@@ -103,6 +103,25 @@ const Demo = () => {
 
           {/* Demo Videos Section */}
           <div className="space-y-8 mb-12">
+            {/* Pitch Video */}
+            <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white border-opacity-20">
+              <h2 className="text-3xl font-bold mb-4">Pitch Video</h2>
+              <p className="text-lg text-gray-200 mb-6">
+                Learn about Silta's mission and vision
+              </p>
+              <div className="rounded-2xl overflow-hidden border border-white border-opacity-20 shadow-2xl">
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/CrahnhAAr0Q"
+                    title="Silta Pitch Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+
             {/* Demo Video */}
             <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white border-opacity-20">
               <h2 className="text-3xl font-bold mb-4">Demo Video</h2>
@@ -110,14 +129,15 @@ const Demo = () => {
                 Watch Silta's face recognition technology in action
               </p>
               <div className="rounded-2xl overflow-hidden border border-white border-opacity-20 shadow-2xl">
-                <video 
-                  controls 
-                  className="w-full h-auto"
-                  poster="/logo.png"
-                >
-                  <source src="/videos/silta-demo.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/tOJCP0sMnXk"
+                    title="Silta Demo Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
               </div>
             </div>
 
@@ -192,8 +212,7 @@ const Demo = () => {
               <div>
                 <h3 className="text-xl font-bold mb-3 text-purple-300">Frontend</h3>
                 <ul className="list-disc list-inside space-y-1 text-gray-200 ml-4">
-                  <li>React 18.2.0 with TypeScript</li>
-                  <li>React Router for navigation</li>
+                  <li>React 19.2.0 with TypeScript</li>
                   <li>Tailwind CSS for styling</li>
                   <li>Vite as build tool</li>
                   <li>Lucide React for icons</li>
@@ -202,28 +221,23 @@ const Demo = () => {
               <div>
                 <h3 className="text-xl font-bold mb-3 text-blue-300">AI/ML Technologies</h3>
                 <ul className="list-disc list-inside space-y-1 text-gray-200 ml-4">
-                  <li>TensorFlow Lite for mobile-optimized face recognition</li>
-                  <li>Quantized models (&lt; 15MB size) for efficient on-device processing</li>
-                  <li>Real-time vector embedding generation</li>
-                  <li>Local facial fingerprint storage (SQLite)</li>
+                  <li>face-api.js (TensorFlow.js) for face recognition</li>
+                  <li>Real-time vector embedding generation (Float32Array descriptors)</li>
+                  <li>In-memory data storage (React state)</li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3 text-green-300">Architecture</h3>
                 <ul className="list-disc list-inside space-y-1 text-gray-200 ml-4">
-                  <li>Edge AI processing (no cloud dependencies for recognition)</li>
-                  <li>Offline-first design</li>
-                  <li>Encrypted local storage</li>
+                  <li>Edge AI processing (face-api.js runs in the browser)</li>
+                  <li>Offline-first design (no external API calls)</li>
                   <li>Cross-platform ready (React Native planned for mobile deployment)</li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3 text-yellow-300">Deployment</h3>
                 <ul className="list-disc list-inside space-y-1 text-gray-200 ml-4">
-                  <li>Vercel for web hosting</li>
-                  <li>Serverless architecture</li>
-                  <li>Express.js for local API development</li>
-                  <li>Website content scraping for intelligent responses</li>
+                  <li>Web-based prototype demonstration</li>
                 </ul>
               </div>
             </div>

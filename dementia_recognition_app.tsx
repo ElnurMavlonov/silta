@@ -26,7 +26,7 @@ const App = () => {
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => scrollToSection('problem')}>
               <div className="bg-white bg-opacity-10 p-2 rounded-xl border border-white border-opacity-20">
-                <Brain className="w-8 h-8" style={{ color: '#FDCFFA' }} />
+                <img src="/logo.png" alt="Silta Logo" className="w-8 h-8 object-contain" />
               </div>
               <span className="text-2xl font-bold tracking-tight">Silta</span>
             </div>
@@ -538,7 +538,7 @@ const App = () => {
 
       <footer className="bg-black bg-opacity-40 backdrop-blur-lg py-12 border-t border-white border-opacity-10 text-center">
         <div className="max-w-6xl mx-auto px-6">
-          <Brain className="w-10 h-10 mx-auto text-purple-300 mb-4" />
+          <img src="/logo.png" alt="Silta Logo" className="w-10 h-10 mx-auto mb-4 object-contain" />
           <p className="text-3xl font-bold mb-2 text-purple-300">Silta</p>
           <p className="text-gray-400 mb-2">AI Hackathon 2025 • Tashkent, Uzbekistan</p>
           <div className="text-sm text-gray-400">

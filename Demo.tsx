@@ -128,14 +128,15 @@ const Demo = () => {
                 See how Silta helps dementia patients in real-world scenarios
               </p>
               <div className="rounded-2xl overflow-hidden border border-white border-opacity-20 shadow-2xl">
-                <video 
-                  controls 
-                  className="w-full h-auto"
-                  poster="/logo.png"
-                >
-                  <source src="/videos/siltas-real-life.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/BaWTdfqv8l8"
+                    title="Silta Real-Life Application"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
               </div>
             </div>
           </div>

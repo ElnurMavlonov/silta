@@ -101,46 +101,200 @@ const Demo = () => {
             </p>
           </div>
 
-          {/* Demo Content */}
-          <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white border-opacity-20 mb-8">
-            <h2 className="text-3xl font-bold mb-6">Interactive Demo</h2>
-            <p className="text-lg text-gray-200 mb-8">
-              Experience the full Silta MVP prototype with live face recognition capabilities.
-            </p>
-            
-            {/* MVP Link */}
-            <div className="bg-gradient-to-r from-purple-900 to-indigo-900 rounded-2xl p-12 text-center border border-white border-opacity-20 mb-8">
-              <Zap className="w-16 h-16 mx-auto mb-6 text-yellow-300" />
-              <h3 className="text-2xl font-bold mb-4">Try the Live MVP</h3>
+          {/* Demo Videos Section */}
+          <div className="space-y-8 mb-12">
+            {/* Demo Video */}
+            <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white border-opacity-20">
+              <h2 className="text-3xl font-bold mb-4">Demo Video</h2>
               <p className="text-lg text-gray-200 mb-6">
-                Test Silta's face recognition technology in our working prototype
+                Watch Silta's face recognition technology in action
               </p>
-              <a
-                href="https://silta-prototype.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-white text-purple-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all shadow-lg hover:scale-105"
-              >
-                Open MVP Prototype
-                <ExternalLink className="w-5 h-5" />
-              </a>
+              <div className="rounded-2xl overflow-hidden border border-white border-opacity-20 shadow-2xl">
+                <video 
+                  controls 
+                  className="w-full h-auto"
+                  poster="/logo.png"
+                >
+                  <source src="/videos/silta-demo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            {/* Real-Life Video */}
+            <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white border-opacity-20">
+              <h2 className="text-3xl font-bold mb-4">Real-Life Application</h2>
+              <p className="text-lg text-gray-200 mb-6">
+                See how Silta helps dementia patients in real-world scenarios
+              </p>
+              <div className="rounded-2xl overflow-hidden border border-white border-opacity-20 shadow-2xl">
+                <video 
+                  controls 
+                  className="w-full h-auto"
+                  poster="/logo.png"
+                >
+                  <source src="/videos/siltas-real-life.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
 
-          {/* Features Section */}
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
-              <h3 className="text-xl font-bold mb-3">Real-time Recognition</h3>
-              <p className="text-gray-200">See how Silta identifies faces instantly</p>
+          {/* What is Being Shown */}
+          <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white border-opacity-20 mb-8">
+            <h2 className="text-3xl font-bold mb-6">What is Being Shown</h2>
+            <div className="space-y-4 text-lg text-gray-200">
+              <p>
+                Silta is a mobile application designed to help individuals with dementia recognize their loved ones through AI-powered face recognition. The demo showcases:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Real-time Face Recognition:</strong> The app uses the device camera to identify faces in real-time</li>
+                <li><strong>Contextual Information Display:</strong> When a face is recognized, the app displays the person's name and relationship to the user</li>
+                <li><strong>Privacy-First Architecture:</strong> All facial recognition processing happens locally on the device</li>
+                <li><strong>Simple, Accessible Interface:</strong> Large text and high-contrast design optimized for users with cognitive impairments</li>
+              </ul>
             </div>
-            <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
-              <h3 className="text-xl font-bold mb-3">Privacy First</h3>
-              <p className="text-gray-200">All processing happens locally on your device</p>
+          </div>
+
+          {/* How It Relates to Problem and Solution */}
+          <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white border-opacity-20 mb-8">
+            <h2 className="text-3xl font-bold mb-6">How It Relates to Problem and Solution</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-2xl font-bold mb-3 text-red-200">The Problem</h3>
+                <ul className="list-disc list-inside space-y-2 text-lg text-gray-200 ml-4">
+                  <li>55 million people worldwide live with dementia, with numbers expected to triple by 2050</li>
+                  <li>Dementia patients often cannot recognize even their closest family members</li>
+                  <li>This leads to severe anxiety, social withdrawal, and caregiver burnout</li>
+                  <li>Finland has the highest dementia rate in the world, inspiring our name "Silta" (Bridge in Finnish)</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-3 text-green-200">Our Solution</h3>
+                <p className="text-lg text-gray-200 mb-3">
+                  Silta serves as a digital bridge, reconnecting patients with their loved ones by:
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-lg text-gray-200 ml-4">
+                  <li>Providing instant recognition of familiar faces</li>
+                  <li>Displaying names and relationships in clear, accessible text</li>
+                  <li>Operating entirely offline to protect user privacy</li>
+                  <li>Reducing patient anxiety and improving social interactions</li>
+                </ul>
+              </div>
             </div>
-            <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-6 border border-white border-opacity-20">
-              <h3 className="text-xl font-bold mb-3">Easy to Use</h3>
-              <p className="text-gray-200">Simple interface designed for accessibility</p>
+          </div>
+
+          {/* Stack, Technologies, and AI Solutions */}
+          <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white border-opacity-20 mb-8">
+            <h2 className="text-3xl font-bold mb-6">Stack, Technologies, and AI Solutions Used</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-bold mb-3 text-purple-300">Frontend</h3>
+                <ul className="list-disc list-inside space-y-1 text-gray-200 ml-4">
+                  <li>React 18.2.0 with TypeScript</li>
+                  <li>React Router for navigation</li>
+                  <li>Tailwind CSS for styling</li>
+                  <li>Vite as build tool</li>
+                  <li>Lucide React for icons</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-3 text-blue-300">AI/ML Technologies</h3>
+                <ul className="list-disc list-inside space-y-1 text-gray-200 ml-4">
+                  <li>TensorFlow Lite for mobile-optimized face recognition</li>
+                  <li>Quantized models (&lt; 15MB size) for efficient on-device processing</li>
+                  <li>Real-time vector embedding generation</li>
+                  <li>Local facial fingerprint storage (SQLite)</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-3 text-green-300">Architecture</h3>
+                <ul className="list-disc list-inside space-y-1 text-gray-200 ml-4">
+                  <li>Edge AI processing (no cloud dependencies for recognition)</li>
+                  <li>Offline-first design</li>
+                  <li>Encrypted local storage</li>
+                  <li>Cross-platform ready (React Native planned for mobile deployment)</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-3 text-yellow-300">Deployment</h3>
+                <ul className="list-disc list-inside space-y-1 text-gray-200 ml-4">
+                  <li>Vercel for web hosting</li>
+                  <li>Serverless architecture</li>
+                  <li>Express.js for local API development</li>
+                  <li>Website content scraping for intelligent responses</li>
+                </ul>
+              </div>
             </div>
+          </div>
+
+          {/* Roadmap Stage */}
+          <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white border-opacity-20 mb-8">
+            <h2 className="text-3xl font-bold mb-6">Roadmap Stage</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-purple-300">Current Stage: <span className="text-yellow-300">Prototype</span></h3>
+                <p className="text-lg text-gray-200 mb-4">
+                  We are currently in the <strong>Prototype</strong> phase, having completed:
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-lg text-gray-200 ml-4">
+                  <li>✅ Core face recognition engine development</li>
+                  <li>✅ UI/UX design and implementation</li>
+                  <li>✅ Web-based prototype demonstration</li>
+                  <li>✅ Basic API endpoints for chatbot and AI interactions</li>
+                  <li>✅ Website content integration for intelligent responses</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-green-300">Next Steps</h3>
+                <div className="space-y-4">
+                  <div className="bg-black bg-opacity-30 rounded-xl p-4 border border-white border-opacity-10">
+                    <h4 className="text-xl font-bold mb-2">Q1 2026 - MVP Pilot</h4>
+                    <p className="text-gray-200">Closed beta testing with 50 families in Tashkent</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-300 ml-4 mt-2">
+                      <li>Integration of voice note features</li>
+                      <li>Performance optimization</li>
+                      <li>User feedback collection</li>
+                    </ul>
+                  </div>
+                  <div className="bg-black bg-opacity-30 rounded-xl p-4 border border-white border-opacity-10">
+                    <h4 className="text-xl font-bold mb-2">Q2 2026 - Public Launch</h4>
+                    <p className="text-gray-200">Official release on App Store & Play Store</p>
+                    <ul className="list-disc list-inside space-y-1 text-gray-300 ml-4 mt-2">
+                      <li>Central Asian market deployment</li>
+                      <li>Partnership with local health clinics</li>
+                      <li>Marketing and user acquisition</li>
+                    </ul>
+                  </div>
+                  <div className="bg-black bg-opacity-30 rounded-xl p-4 border border-white border-opacity-10">
+                    <h4 className="text-xl font-bold mb-2">2027 - Global Expansion</h4>
+                    <ul className="list-disc list-inside space-y-1 text-gray-300 ml-4 mt-2">
+                      <li>Localization for European markets (starting with Finland)</li>
+                      <li>Enterprise API for care homes</li>
+                      <li>Advanced features and analytics</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive Demo Link */}
+          <div className="bg-gradient-to-r from-purple-900 to-indigo-900 rounded-2xl p-12 text-center border border-white border-opacity-20 mb-8">
+            <Zap className="w-16 h-16 mx-auto mb-6 text-yellow-300" />
+            <h3 className="text-2xl font-bold mb-4">Try the Live MVP</h3>
+            <p className="text-lg text-gray-200 mb-6">
+              Test Silta's face recognition technology in our working prototype
+            </p>
+            <a
+              href="https://silta-prototype.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-white text-purple-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all shadow-lg hover:scale-105"
+            >
+              Open MVP Prototype
+              <ExternalLink className="w-5 h-5" />
+            </a>
           </div>
 
           {/* Bonus Features: API Testing */}

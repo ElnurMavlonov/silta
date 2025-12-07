@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Zap, MessageSquare, Code, Send } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Zap, MessageSquare, Send } from 'lucide-react';
 
 const Demo = () => {
   const [chatbotQuestion, setChatbotQuestion] = useState('');
@@ -8,8 +8,8 @@ const Demo = () => {
   const [chatbotLoading, setChatbotLoading] = useState(false);
   
   const [apiQuestion, setApiQuestion] = useState('How does your project use AI?');
-  const [apiAnswer, setApiAnswer] = useState('');
-  const [apiLoading, setApiLoading] = useState(false);
+  const [apiTestResult, setApiTestResult] = useState('');
+  const [apiTestLoading, setApiTestLoading] = useState(false);
 
   const handleChatbotSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,6 +22,13 @@ const Demo = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: chatbotQuestion })
       });
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: `Server error: ${response.status} ${response.statusText}` }));
+        setChatbotAnswer(`Error: ${errorData.error || `Server returned ${response.status}`}`);
+        return;
+      }
+      
       const data = await response.json();
       setChatbotAnswer(data.answer || 'Error getting response');
     } catch (error) {
@@ -31,25 +38,33 @@ const Demo = () => {
     }
   };
 
-  const handleApiSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleApiTest = async () => {
     if (!apiQuestion.trim()) return;
     
-    setApiLoading(true);
+    setApiTestLoading(true);
+    setApiTestResult('');
     try {
       const response = await fetch('/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: apiQuestion })
       });
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: `Server error: ${response.status} ${response.statusText}` }));
+        setApiTestResult(`Error: ${errorData.error || `Server returned ${response.status}`}`);
+        return;
+      }
+      
       const data = await response.json();
-      setApiAnswer(data.answer || 'Error getting response');
+      setApiTestResult(JSON.stringify(data, null, 2));
     } catch (error) {
-      setApiAnswer('Error: Could not connect to API');
+      setApiTestResult('Error: Could not connect to API');
     } finally {
-      setApiLoading(false);
+      setApiTestLoading(false);
     }
   };
+
 
   return (
     <div className="min-h-screen text-white font-sans" style={{ background: 'linear-gradient(to bottom right, #4E56C0, #9B5DE0, #D78FEE)' }}>
@@ -59,7 +74,7 @@ const Demo = () => {
           <div className="flex items-center justify-between h-20">
             <Link to="/" className="flex items-center gap-3 cursor-pointer">
               <div className="bg-white bg-opacity-10 p-2 rounded-xl border border-white border-opacity-20">
-                <img src="/logo.png" alt="Silta Logo" className="w-8 h-8 object-contain" />
+                <img src="/logo.png" alt="Silta Logo" className="w-10 h-10 object-contain" />
               </div>
               <span className="text-2xl font-bold tracking-tight">Silta</span>
             </Link>
@@ -134,7 +149,7 @@ const Demo = () => {
             <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20">
               <div className="flex items-center gap-3 mb-6">
                 <MessageSquare className="w-8 h-8 text-purple-300" />
-                <h3 className="text-2xl font-bold">Chatbot API</h3>
+                <h3 className="text-2xl font-bold">Chatbot</h3>
               </div>
               <p className="text-gray-200 mb-6">
                 Try our rule-based chatbot that answers questions about Silta.
@@ -167,39 +182,49 @@ const Demo = () => {
               )}
             </div>
 
-            {/* AI Ask API */}
+            {/* API Ask Link */}
             <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20">
               <div className="flex items-center gap-3 mb-6">
-                <Code className="w-8 h-8 text-blue-300" />
-                <h3 className="text-2xl font-bold">AI Ask API</h3>
+                <ExternalLink className="w-8 h-8 text-blue-300" />
+                <h3 className="text-2xl font-bold">API Ask</h3>
               </div>
               <p className="text-gray-200 mb-6">
-                Demonstrate how our system interacts with AI-powered endpoints.
+                Test our AI-powered API endpoint. Enter your question and click the button to make a test request.
               </p>
-              <form onSubmit={handleApiSubmit} className="space-y-4">
-                <input
-                  type="text"
-                  value={apiQuestion}
-                  onChange={(e) => setApiQuestion(e.target.value)}
-                  placeholder="e.g., How does your project use AI?"
-                  className="w-full px-4 py-3 rounded-xl bg-black bg-opacity-30 border border-white border-opacity-20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm text-gray-400 mb-2">Question:</label>
+                  <input
+                    type="text"
+                    value={apiQuestion}
+                    onChange={(e) => setApiQuestion(e.target.value)}
+                    placeholder="e.g., How does your project use AI?"
+                    className="w-full px-4 py-3 rounded-xl bg-black bg-opacity-30 border border-white border-opacity-20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                </div>
                 <button
-                  type="submit"
-                  disabled={apiLoading}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                  onClick={handleApiTest}
+                  disabled={apiTestLoading || !apiQuestion.trim()}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-lg hover:scale-105"
                 >
-                  {apiLoading ? 'Loading...' : (
+                  {apiTestLoading ? 'Testing...' : (
                     <>
-                      <Send className="w-4 h-4" />
-                      Ask AI
+                      <ExternalLink className="w-5 h-5" />
+                      Test API Ask Endpoint
                     </>
                   )}
                 </button>
-              </form>
-              {apiAnswer && (
+              </div>
+              <div className="mt-6 p-4 bg-black bg-opacity-30 rounded-xl border border-white border-opacity-10">
+                <p className="text-sm text-gray-400 mb-2">Endpoint:</p>
+                <code className="text-blue-300 text-sm">POST /api/ask</code>
+              </div>
+              {apiTestResult && (
                 <div className="mt-6 p-4 bg-black bg-opacity-30 rounded-xl border border-white border-opacity-10">
-                  <p className="text-gray-200 whitespace-pre-wrap">{apiAnswer}</p>
+                  <p className="text-sm text-gray-400 mb-2">Response:</p>
+                  <pre className="text-xs text-gray-200 bg-black bg-opacity-50 p-3 rounded overflow-x-auto whitespace-pre-wrap">
+                    {apiTestResult}
+                  </pre>
                 </div>
               )}
             </div>

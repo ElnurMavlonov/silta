@@ -1,25 +1,19 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Brain, Users, Smartphone, Database, Zap, Heart, ChevronRight, Camera, Shield, Linkedin, Activity, Lock, Globe, Rocket, Flag, Lightbulb, Award, Trophy } from 'lucide-react';
+import { Brain, Users, Smartphone, Database, Zap, Heart, ChevronRight, Camera, Shield, Linkedin, Activity, Lock, Globe, Lightbulb, Award, Trophy, HardDrive, Crown, Target, TrendingUp } from 'lucide-react';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('problem');
-  const navigate = useNavigate();
 
-  const sections = ['problem', 'solution-&-impact', 'team', 'roadmap', 'why-us', 'how-it-works', 'demo'];
+  const sections = ['problem', 'solution-&-impact', 'team', 'business-model', 'why-us', 'how-it-works', 'demo'];
 
   const scrollToSection = (sectionId: string) => {
-    if (sectionId === 'demo') {
-      navigate('/demo');
-      return;
-    }
     setActiveSection(sectionId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <div className="min-h-screen text-white font-sans selection:bg-purple-300 selection:text-purple-900" style={{ background: 'linear-gradient(to bottom right, #4E56C0, #9B5DE0, #D78FEE)' }}>
-      
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-black bg-opacity-20 backdrop-blur-md z-50 border-b border-white border-opacity-10 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,18 +24,17 @@ const App = () => {
               </div>
               <span className="text-2xl font-bold tracking-tight">Silta - the Bridge</span>
             </div>
-            
+
             {/* Desktop Navigation */}
             <div className="hidden lg:flex space-x-2">
               {sections.map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    activeSection === section 
-                      ? 'bg-white bg-opacity-20 text-white shadow-lg border border-white border-opacity-20' 
-                      : 'text-gray-200 hover:bg-white hover:bg-opacity-10 hover:text-white'
-                  }`}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeSection === section
+                    ? 'bg-white bg-opacity-20 text-white shadow-lg border border-white border-opacity-20'
+                    : 'text-gray-200 hover:bg-white hover:bg-opacity-10 hover:text-white'
+                    }`}
                 >
                   {section.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                 </button>
@@ -56,28 +49,27 @@ const App = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Mobile Scroller */}
         <div className="lg:hidden overflow-x-auto pb-4 px-4 flex gap-2 no-scrollbar">
-           {sections.map((section) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${
-                    activeSection === section 
-                      ? 'bg-white bg-opacity-20 text-white shadow-lg border border-white border-opacity-20' 
-                      : 'text-gray-200 hover:bg-white hover:bg-opacity-10 hover:text-white'
-                  }`}
-                >
-                  {section.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                </button>
-              ))}
+          {sections.map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${activeSection === section
+                ? 'bg-white bg-opacity-20 text-white shadow-lg border border-white border-opacity-20'
+                : 'text-gray-200 hover:bg-white hover:bg-opacity-10 hover:text-white'
+                }`}
+            >
+              {section.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+            </button>
+          ))}
         </div>
       </nav>
 
       {/* Main Content Area */}
       <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 transition-all duration-500 ease-in-out">
-        
+
         {/* PROBLEM SECTION */}
         {activeSection === 'problem' && (
           <div className="max-w-6xl mx-auto animate-fadeIn">
@@ -92,7 +84,7 @@ const App = () => {
                 For millions with dementia, a familiar face becomes a stranger. The resulting isolation devastates families.
               </p>
             </div>
-            
+
             <div className="rounded-3xl p-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 mb-16 shadow-2xl">
               <div className="bg-black bg-opacity-40 backdrop-blur-xl rounded-[22px] p-8 md:p-12">
                 <div className="flex flex-col md:flex-row items-center gap-8">
@@ -121,7 +113,7 @@ const App = () => {
               </div>
 
               <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-3xl p-8 border border-white border-opacity-20 hover:bg-opacity-15 transition-all cursor-default group">
-                 <div className="w-14 h-14 bg-pink-500 bg-opacity-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 bg-pink-500 bg-opacity-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Heart className="w-8 h-8 text-pink-200" />
                 </div>
                 <h3 className="text-3xl font-bold mb-4">Emotional Toll</h3>
@@ -156,7 +148,7 @@ const App = () => {
                 </div>
 
                 <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20 transition-transform hover:scale-105">
-                   <div className="flex items-center gap-6 mb-4">
+                  <div className="flex items-center gap-6 mb-4">
                     <div className="p-4 bg-purple-500 bg-opacity-20 rounded-2xl">
                       <Lock className="w-8 h-8 text-purple-200" />
                     </div>
@@ -175,18 +167,18 @@ const App = () => {
                   <div className="absolute top-0 left-0 right-0 h-8 bg-gray-800 rounded-t-[2.5rem] flex justify-center items-center z-20">
                     <div className="w-24 h-5 bg-black rounded-b-xl"></div>
                   </div>
-                  
+
                   {/* Fake UI */}
                   <div className="h-full flex flex-col pt-12">
                     <div className="flex-1 bg-gray-800 rounded-2xl mb-4 overflow-hidden relative">
                       <img src="/alisher-adilov.jpg" alt="Camera View" className="w-full h-full object-cover" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-48 h-80 border-2 border-purple-400 rounded-xl relative">
-                           <div className="absolute -top-3 -left-1 bg-purple-500 text-xs px-2 py-1 rounded">Face Detected</div>
-                           <div className="absolute bottom-0 left-0 right-0 bg-black rounded-xl bg-opacity-70 p-3 text-center backdrop-blur-sm">
-                             <div className="text-white font-bold text-lg">Alisher Odilov</div>
-                             <div className="text-purple-300 text-sm">Your Grandson</div>
-                           </div>
+                          <div className="absolute -top-3 -left-1 bg-purple-500 text-xs px-2 py-1 rounded">Face Detected</div>
+                          <div className="absolute bottom-0 left-0 right-0 bg-black rounded-xl bg-opacity-70 p-3 text-center backdrop-blur-sm">
+                            <div className="text-white font-bold text-lg">Alisher Odilov</div>
+                            <div className="text-purple-300 text-sm">Your Grandson</div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -205,7 +197,7 @@ const App = () => {
               <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200 drop-shadow-sm">
                 Expected Outcomes
               </h2>
-            
+
               <div className="grid md:grid-cols-3 gap-8 mb-12">
                 {[
                   { label: "Reduction in Patient Anxiety", icon: Activity, color: "text-green-300" },
@@ -239,7 +231,7 @@ const App = () => {
         {activeSection === 'how-it-works' && (
           <div className="max-w-6xl mx-auto animate-fadeIn">
             <h1 className="text-5xl md:text-7xl font-bold mb-16 text-center">How It Works</h1>
-            
+
             <div className="relative">
               {/* Connector Line */}
               <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-1 bg-white bg-opacity-10 transform -translate-x-1/2"></div>
@@ -279,15 +271,15 @@ const App = () => {
                       <h3 className="text-3xl font-bold mb-4">Step {item.step}: {item.title}</h3>
                       <p className="text-xl text-gray-200 leading-relaxed">{item.desc}</p>
                     </div>
-                    
+
                     <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center font-bold text-2xl shadow-lg border-4 border-gray-900 z-10 shrink-0">
                       {item.step}
                     </div>
 
                     <div className="flex-1 flex justify-center">
-                       <div className="w-full max-w-xs bg-white bg-opacity-5 p-6 rounded-3xl border border-white border-opacity-10 aspect-video flex items-center justify-center">
-                         <item.icon className="w-20 h-20 text-white opacity-20" />
-                       </div>
+                      <div className="w-full max-w-xs bg-white bg-opacity-5 p-6 rounded-3xl border border-white border-opacity-10 aspect-video flex items-center justify-center">
+                        <item.icon className="w-20 h-20 text-white opacity-20" />
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -297,7 +289,7 @@ const App = () => {
             {/* Technology Section Content */}
             <div className="mt-20">
               <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Tech Stack</h2>
-            
+
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-gradient-to-br from-purple-900 to-indigo-900 rounded-3xl p-10 border border-white border-opacity-20 shadow-xl">
                   <Brain className="w-16 h-16 text-purple-300 mb-6" />
@@ -338,7 +330,7 @@ const App = () => {
                 <div className="inline-block bg-black bg-opacity-30 rounded-full px-8 py-3 border border-white border-opacity-20">
                   <span className="text-gray-400">Powered by</span>
                   <span className="ml-3 font-bold text-white text-lg">Python • TensorFlow • React Native • SQLite</span>
-                 </div>
+                </div>
               </div>
             </div>
           </div>
@@ -348,7 +340,7 @@ const App = () => {
         {activeSection === 'team' && (
           <div className="max-w-6xl mx-auto animate-fadeIn text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-16">The Creators</h1>
-            
+
             <div className="grid md:grid-cols-4 gap-6">
               {[
                 { name: "Elnur Mavlonov", role: "Team Lead & Mech. Eng.", color: "text-blue-300", linkedin: "https://www.linkedin.com/in/elnur-mavlonov-169a7a246/", image: "/elnur-mavlonov.jpg" },
@@ -359,8 +351,8 @@ const App = () => {
                 <div key={i} className="bg-white bg-opacity-5 backdrop-blur-sm rounded-3xl p-6 border border-white border-opacity-10 hover:bg-opacity-10 transition-all group">
                   <div className="w-24 h-24 mx-auto rounded-full mb-6 overflow-hidden shadow-lg group-hover:scale-110 transition-transform border-2 border-white border-opacity-20">
                     {member.image ? (
-                      <img 
-                        src={member.image} 
+                      <img
+                        src={member.image}
                         alt={member.name}
                         className="w-full h-full object-cover"
                         onError={(e) => {
@@ -376,7 +368,7 @@ const App = () => {
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-tr from-gray-700 to-gray-600 flex items-center justify-center text-3xl font-bold text-white">
-                    {member.name.charAt(0)}
+                        {member.name.charAt(0)}
                       </div>
                     )}
                   </div>
@@ -392,76 +384,173 @@ const App = () => {
             </div>
 
             <div className="mt-20 p-8 rounded-3xl bg-white bg-opacity-5 border border-white border-opacity-10 inline-block">
-               <p className="text-2xl font-light italic text-gray-300">
-                 "Bridging memory loss with human connection."
-               </p>
+              <p className="text-2xl font-light italic text-gray-300">
+                "Bridging memory loss with human connection."
+              </p>
             </div>
           </div>
         )}
 
-        {/* ROADMAP SECTION (NEW) */}
-        {activeSection === 'roadmap' && (
+        {/* BUSINESS MODEL SECTION (Integrated for Pitch) */}
+        {activeSection === 'business-model' && (
           <div className="max-w-6xl mx-auto animate-fadeIn">
+            {/* Hero / Value Prop */}
             <div className="text-center mb-16">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">Development Roadmap</h1>
-              <p className="text-2xl text-gray-200">From Hackathon to Nationwide Impact</p>
+              <div className="inline-block px-4 py-1.5 rounded-full bg-white bg-opacity-10 border border-white border-opacity-20 text-purple-200 font-medium text-sm mb-6">
+                Hybrid Hardware + Software Platform
+              </div>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-lg">
+                The Future of <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-200">Connected Care</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto leading-relaxed font-light mb-8">
+                A revolutionary freemium model combining accessible software with premium hardware to unlock advanced capabilities.
+              </p>
             </div>
-            <div className="relative">
-              {/* Vertical line for desktop */}
-              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-white bg-opacity-20"></div>
-              <div className="space-y-12">
-                {[
-                  {
-                    phase: "Phase 1: Concept & Prototype",
-                    time: "Q4 2025",
-                    desc: "Hackathon development. Core face recognition engine built. UI/UX design finalized.",
-                    status: "current",
-                    icon: Rocket
-                  },
-                  {
-                    phase: "Phase 2: MVP Pilot",
-                    time: "Q1 2026",
-                    desc: "Closed beta testing with 50 families in Tashkent. Integration of voice note features.",
-                    status: "future",
-                    icon: Activity
-                  },
-                  {
-                    phase: "Phase 3: Public Launch",
-                    time: "Q2 2026",
-                    desc: "Official release on App Store & Play Store in Central Asian countries. Partnership with local health clinics.",
-                    status: "future",
-                    icon: Flag
-                  },
-                  {
-                    phase: "Phase 4: Global Expansion",
-                    time: "2027",
-                    desc: "Localization for European markets (starting with Finland). Enterprise API for care homes.",
-                    status: "future",
-                    icon: Globe
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className={`flex flex-col md:flex-row items-center justify-between gap-8 ${idx % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                    {/* Content Box */}
-                    <div className="flex-1 w-full">
-                       <div className={`p-8 rounded-3xl border border-white border-opacity-10 backdrop-blur-md transition-all hover:scale-105 ${item.status === 'current' ? 'bg-gradient-to-r from-purple-900 to-indigo-900 border-purple-400 shadow-[0_0_30px_rgba(168,85,247,0.3)]' : 'bg-white bg-opacity-5'}`}>
-                         <div className="flex items-center gap-3 mb-2">
-                           {item.status === 'current' && <span className="bg-green-500 text-xs font-bold px-2 py-1 rounded text-black uppercase tracking-wide">Current Stage</span>}
-                           <span className="text-sm font-mono text-purple-300">{item.time}</span>
-                         </div>
-                         <h3 className="text-2xl font-bold mb-2">{item.phase}</h3>
-                         <p className="text-gray-300">{item.desc}</p>
-                       </div>
-                    </div>
-                    {/* Timeline Node */}
-                    <div className="relative flex items-center justify-center">
-                      <div className={`w-12 h-12 rounded-full border-4 flex items-center justify-center z-10 ${item.status === 'current' ? 'bg-purple-500 border-white shadow-lg scale-125' : 'bg-gray-900 border-gray-600'}`}>
-                        <item.icon className="w-5 h-5 text-white" />
-                      </div>
-                    </div>
-                    {/* Empty Space for alignment */}
-                    <div className="flex-1 hidden md:block"></div>
+
+            {/* Pricing Tiers */}
+            <div className="mb-20">
+              <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-white drop-shadow-sm">Product Ecosystem</h2>
+              <div className="grid md:grid-cols-3 gap-8">
+
+                {/* Free Tier */}
+                <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-3xl p-8 border border-white border-opacity-20 hover:bg-opacity-15 transition-all relative overflow-hidden group">
+                  <div className="mb-8">
+                    <Smartphone className="w-12 h-12 text-gray-300 mb-6" />
+                    <h3 className="text-2xl font-bold mb-2">Free App</h3>
+                    <div className="text-4xl font-bold mb-2">$0 <span className="text-lg text-gray-300 font-normal">/ forever</span></div>
+                    <p className="text-gray-300 text-sm">Target: 95% of users. Build the base.</p>
                   </div>
-                ))}
+                  <ul className="space-y-4">
+                    {[
+                      "Full basic functionality",
+                      "Unlimited usage",
+                      "No ads",
+                      "Local data storage",
+                      "Community support"
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-3 text-gray-200">
+                        <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                        </div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Hardware Bundle - Featured */}
+                <div className="bg-gradient-to-b from-purple-900 to-indigo-900 bg-opacity-90 backdrop-blur-md rounded-3xl p-8 border-2 border-purple-400 shadow-[0_0_30px_rgba(168,85,247,0.3)] transform md:-translate-y-4 relative overflow-hidden group">
+                  <div className="absolute top-4 right-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</div>
+                  <div className="mb-8">
+                    <HardDrive className="w-12 h-12 text-purple-300 mb-6" />
+                    <h3 className="text-2xl font-bold mb-2">Hardware Bundle</h3>
+                    <div className="text-4xl font-bold mb-2">$149 <span className="text-lg text-gray-300 font-normal">/ one-time</span></div>
+                    <p className="text-gray-300 text-sm">Target: 5-10% conversion. Primary revenue.</p>
+                  </div>
+                  <ul className="space-y-4">
+                    {[
+                      "Everything in Free App",
+                      "Physical Device (Clip/Glasses)",
+                      "Real-time Biometric Tracking",
+                      "Offline Capabilities",
+                      "1-Year Warranty",
+                      "Priority Firmware Updates"
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-3 text-white">
+                        <div className="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                          <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        </div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Plus Subs */}
+                <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-3xl p-8 border border-white border-opacity-20 hover:bg-opacity-15 transition-all relative overflow-hidden group">
+                  <div className="mb-8">
+                    <Crown className="w-12 h-12 text-yellow-300 mb-6" />
+                    <h3 className="text-2xl font-bold mb-2">Plus Subscription</h3>
+                    <div className="text-4xl font-bold mb-2">$5 <span className="text-lg text-gray-300 font-normal">/ month</span></div>
+                    <p className="text-gray-300 text-sm">Target: Power users. Recurring revenue.</p>
+                  </div>
+                  <ul className="space-y-4">
+                    {[
+                      "Everything in Hardware Bundle",
+                      "Unlimited Cloud Storage",
+                      "AI-Powered Insights",
+                      "Advanced Analytics",
+                      "Priority 24/7 Support",
+                      "Team Collaboration Tools"
+                    ].map((feature, i) => (
+                      <li key={i} className="flex items-center gap-3 text-gray-200">
+                        <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                        </div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Financial Projections */}
+            <div className="mb-20">
+              <div className="bg-black bg-opacity-20 rounded-3xl p-12 border border-white border-opacity-10">
+                <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">24-Month Growth Model</h2>
+                <div className="grid md:grid-cols-3 gap-8">
+                  <div className="text-center p-6">
+                    <Users className="w-12 h-12 text-blue-300 mx-auto mb-4" />
+                    <div className="text-5xl font-bold text-white mb-2">250K</div>
+                    <div className="text-gray-300">Projected Users</div>
+                  </div>
+                  <div className="text-center p-6 border-l border-white border-opacity-10">
+                    <TrendingUp className="w-12 h-12 text-green-300 mx-auto mb-4" />
+                    <div className="text-5xl font-bold text-white mb-2">12.5K</div>
+                    <div className="text-gray-300">Hardware Sales</div>
+                  </div>
+                  <div className="text-center p-6 border-l border-white border-opacity-10">
+                    <Zap className="w-12 h-12 text-yellow-300 mx-auto mb-4" />
+                    <div className="text-5xl font-bold text-white mb-2">$2M</div>
+                    <div className="text-gray-300">Total Revenue</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Growth Strategy */}
+            <div className="mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Go-to-Market Strategy</h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="bg-white bg-opacity-5 backdrop-blur-sm rounded-3xl p-8 border border-white border-opacity-10 hover:bg-opacity-10 transition-all">
+                  <h3 className="text-2xl font-bold mb-2">Phase 1: Foundation</h3>
+                  <p className="text-purple-300 mb-6 text-sm font-mono">Months 1-6</p>
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-3 text-gray-200"><Target size={16} /> Validate Product-Market Fit</li>
+                    <li className="flex items-center gap-3 text-gray-200"><Target size={16} /> 10,000 App Downloads</li>
+                    <li className="flex items-center gap-3 text-gray-200"><Target size={16} /> Gather User Feedback</li>
+                  </ul>
+                </div>
+                <div className="bg-white bg-opacity-5 backdrop-blur-sm rounded-3xl p-8 border border-white border-opacity-10 hover:bg-opacity-10 transition-all">
+                  <h3 className="text-2xl font-bold mb-2">Phase 2: Hardware Launch</h3>
+                  <p className="text-purple-300 mb-6 text-sm font-mono">Months 7-12</p>
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-3 text-gray-200"><Target size={16} /> Pre-order Campaign</li>
+                    <li className="flex items-center gap-3 text-gray-200"><Target size={16} /> 1,000 Hardware Sales</li>
+                    <li className="flex items-center gap-3 text-gray-200"><Target size={16} /> Establish Supply Chain</li>
+                  </ul>
+                </div>
+                <div className="bg-white bg-opacity-5 backdrop-blur-sm rounded-3xl p-8 border border-white border-opacity-10 hover:bg-opacity-10 transition-all">
+                  <h3 className="text-2xl font-bold mb-2">Phase 4: Scale</h3>
+                  <p className="text-purple-300 mb-6 text-sm font-mono">Year 2+</p>
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-3 text-gray-200"><Target size={16} /> International Expansion</li>
+                    <li className="flex items-center gap-3 text-gray-200"><Target size={16} /> Hardware v2 Development</li>
+                    <li className="flex items-center gap-3 text-gray-200"><Target size={16} /> $5K+ MRR Subscriptions</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -471,28 +560,28 @@ const App = () => {
         {activeSection === 'why-us' && (
           <div className="max-w-6xl mx-auto animate-fadeIn">
             <h1 className="text-5xl md:text-7xl font-bold mb-16 text-center">Why Us?</h1>
-            
+
             <div className="grid md:grid-cols-2 gap-8 mb-12">
-               {/* Card 1 */}
-               <div className="bg-white bg-opacity-10 backdrop-blur-lg p-8 rounded-3xl border border-white border-opacity-20 flex flex-col items-start hover:bg-opacity-15 transition">
-                 <div className="w-14 h-14 bg-indigo-500 rounded-2xl flex items-center justify-center mb-6">
-                   <Lightbulb className="w-8 h-8 text-white" />
-                 </div>
-                 <h3 className="text-2xl font-bold mb-4">Innovation from Tashkent</h3>
-                 <p className="text-lg text-gray-200">
-                   Positioned in the heart of Central Asia, our team combines engineering education with deep cultural empathy for family structures, allowing us to build a solution that is both high-tech and human-centric.
-                 </p>
-               </div>
-               {/* Card 2 */}
-               <div className="bg-white bg-opacity-10 backdrop-blur-lg p-8 rounded-3xl border border-white border-opacity-20 flex flex-col items-start hover:bg-opacity-15 transition">
-                 <div className="w-14 h-14 bg-pink-500 rounded-2xl flex items-center justify-center mb-6">
-                   <Award className="w-8 h-8 text-white" />
-                 </div>
-                 <h3 className="text-2xl font-bold mb-4">Multidisciplinary Excellence</h3>
-                 <p className="text-lg text-gray-200">
-                   We are Mechanical Engineers, AI Specialists, and Product Designers. This full-stack hardware-software perspective ensures Silta is a robust tool that works in the real world.
-                 </p>
-               </div>
+              {/* Card 1 */}
+              <div className="bg-white bg-opacity-10 backdrop-blur-lg p-8 rounded-3xl border border-white border-opacity-20 flex flex-col items-start hover:bg-opacity-15 transition">
+                <div className="w-14 h-14 bg-indigo-500 rounded-2xl flex items-center justify-center mb-6">
+                  <Lightbulb className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Innovation from Tashkent</h3>
+                <p className="text-lg text-gray-200">
+                  Positioned in the heart of Central Asia, our team combines engineering education with deep cultural empathy for family structures, allowing us to build a solution that is both high-tech and human-centric.
+                </p>
+              </div>
+              {/* Card 2 */}
+              <div className="bg-white bg-opacity-10 backdrop-blur-lg p-8 rounded-3xl border border-white border-opacity-20 flex flex-col items-start hover:bg-opacity-15 transition">
+                <div className="w-14 h-14 bg-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                  <Award className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Multidisciplinary Excellence</h3>
+                <p className="text-lg text-gray-200">
+                  We are Mechanical Engineers, AI Specialists, and Product Designers. This full-stack hardware-software perspective ensures Silta is a robust tool that works in the real world.
+                </p>
+              </div>
             </div>
 
             {/* Achievements Section */}
@@ -528,7 +617,7 @@ const App = () => {
               <h3 className="text-3xl font-bold mb-4">Our Motivation</h3>
               <p className="text-xl text-gray-200 max-w-4xl mx-auto">
                 "Our philosophy is that technology's greatest purpose is to help the most vulnerable. Witnessing the struggle of dementia drove us to build a bridge to bring clarity back to those who need it most."
-               </p>
+              </p>
             </div>
           </div>
         )}

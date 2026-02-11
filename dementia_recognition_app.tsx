@@ -1,12 +1,18 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Brain, Users, Smartphone, Database, Zap, Heart, ChevronRight, Camera, Shield, Linkedin, Activity, Lock, Globe, Lightbulb, Award, Trophy, HardDrive, Crown, Target, TrendingUp } from 'lucide-react';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('problem');
+  const navigate = useNavigate();
 
   const sections = ['problem', 'solution-&-impact', 'team', 'business-model', 'why-us', 'how-it-works', 'demo'];
 
   const scrollToSection = (sectionId: string) => {
+    if (sectionId === 'demo') {
+      navigate('/demo');
+      return;
+    }
     setActiveSection(sectionId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
